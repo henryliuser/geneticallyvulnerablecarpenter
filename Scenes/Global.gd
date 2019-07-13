@@ -24,8 +24,9 @@ var dontChange = {"ui_accept":1,"ui_select":1,"ui_cancel":1,
 "ui_focus_next":1,"ui_focus_prev":1,"ui_left":1,"ui_right":1,
 "ui_up":1,"ui_down":1,"ui_page_up":1,"ui_page_down":1, "ui_home":1, "ui_end":1}
 
-var labels = ["left","right","up","atk","fix","down"]
-var moves = [" Left: ", "Right: ", "  Up: ", " Atk: ", "  Fix: ", "Down: "]
+var labels = ["left","right","jump","atk","fix","crouch"]
+var moves = [" Left: ", "Right: ", "  Jump: ", " Atk: ", "  Fix: ", "Crouch: "]
+var actions = {"player_left":0, "player_right":1, "player_jump":2, "player_attack":3, "player_fix":4, "player_crouch":5}
 #var moves = ["  Up: ", "Down: ", " Left: ", "Right: ", " Atk: ", "  Fix: "]
 
 
@@ -56,9 +57,9 @@ func playerHurt(dmg):
 		get_tree().change_scene("res://Scenes/Main Menu.tscn")
 
 func scrambleControls():
-	var nodeIndex= 0;
 	for action in InputMap.get_actions():
 		if dontChange.get(action) != 1:
+			var nodeIndex = actions.get(action);
 			var eventKey = keyList[randi()%keyList.size()]
 			var event = InputEventKey.new()
 			event.scancode = eventKey
@@ -81,4 +82,3 @@ func scrambleControls():
 			nodeIndex += 1
 			
 			#set nodes[nodeindex] to display "actions[nodeindex] + keyToText.get(eventKey)"
-	
