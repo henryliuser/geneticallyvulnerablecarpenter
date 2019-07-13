@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Global.gd" type="Script" id=1]
+[ext_resource path="res://joystix monospace.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1920
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Global" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TopGUI" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 128.0
+rect_scale = Vector2( 1, 0.75 )
+texture = SubResource( 2 )
+expand = true
+
+[node name="health" type="Label" parent="TopGUI"]
+margin_left = 60.0
+margin_top = 25.0
+margin_right = 347.0
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 3 )
+text = "HP: 100"
+
+[node name="up" type="Label" parent="TopGUI"]
+margin_left = 1250.0
+margin_top = 5.0
+margin_right = 1525.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 225, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "  up: Enter"
+
+[node name="down" type="Label" parent="TopGUI"]
+margin_left = 1250.0
+margin_top = 45.0
+margin_right = 1525.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 4 )
+text = "DOWN: ENTER"
+
+[node name="atk" type="Label" parent="TopGUI"]
+margin_left = 1250.0
+margin_top = 85.0
+margin_right = 1525.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 4 )
+text = " atk: ENTER"
+
+[node name="left" type="Label" parent="TopGUI"]
+margin_left = 1560.0
+margin_top = 5.0
+margin_right = 1860.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 4 )
+text = " LEFT: ENTER"
+
+[node name="right" type="Label" parent="TopGUI"]
+margin_left = 1560.0
+margin_top = 45.0
+margin_right = 1860.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 4 )
+text = "RIGHT: ENTER"
+
+[node name="fix" type="Label" parent="TopGUI"]
+margin_left = 1560.0
+margin_top = 85.0
+margin_right = 1860.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 4 )
+text = "  fix: ENTER"
