@@ -24,7 +24,6 @@ radius = 14.5209
 height = 34.5672
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 887.747, 182.113 )
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 5
 collision_mask = 5
