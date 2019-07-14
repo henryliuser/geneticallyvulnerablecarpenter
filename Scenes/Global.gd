@@ -76,6 +76,7 @@ func scrambleControls():
 			InputMap.action_add_event(action, event)
 			ev.set_action(action)
 			ev.set_pressed(false)
+			print(action)
 			Input.parse_input_event(ev)
 			get_node("TopGUI/"+labels[nodeIndex]).text = moves[nodeIndex] + keyToText.get(eventKey)
 			nodeIndex += 1
