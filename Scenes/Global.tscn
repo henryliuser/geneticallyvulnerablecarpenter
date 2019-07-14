@@ -46,23 +46,23 @@ margin_right = 1525.0
 margin_bottom = 41.0
 rect_pivot_offset = Vector2( 225, 0 )
 custom_fonts/font = SubResource( 4 )
-text = "  up: Enter"
+text = "jump: Space"
 
-[node name="crouch" type="Label" parent="TopGUI"]
+[node name="duck" type="Label" parent="TopGUI"]
 margin_left = 1250.0
 margin_top = 45.0
 margin_right = 1525.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 4 )
-text = "DOWN: ENTER"
+text = "Duck: S"
 
 [node name="atk" type="Label" parent="TopGUI"]
 margin_left = 1250.0
-margin_top = 85.0
+margin_top = 85.9942
 margin_right = 1525.0
-margin_bottom = 121.0
+margin_bottom = 121.994
 custom_fonts/font = SubResource( 4 )
-text = " atk: ENTER"
+text = " atk: H"
 
 [node name="left" type="Label" parent="TopGUI"]
 margin_left = 1560.0
@@ -70,7 +70,7 @@ margin_top = 5.0
 margin_right = 1860.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 4 )
-text = " LEFT: ENTER"
+text = " LEFT: a"
 
 [node name="right" type="Label" parent="TopGUI"]
 margin_left = 1560.0
@@ -78,7 +78,7 @@ margin_top = 45.0
 margin_right = 1860.0
 margin_bottom = 81.0
 custom_fonts/font = SubResource( 4 )
-text = "RIGHT: ENTER"
+text = "RIGHT: d"
 
 [node name="fix" type="Label" parent="TopGUI"]
 margin_left = 1560.0
@@ -86,4 +86,4 @@ margin_top = 85.0
 margin_right = 1860.0
 margin_bottom = 121.0
 custom_fonts/font = SubResource( 4 )
-text = "  fix: ENTER"
+text = "  fix: j"
