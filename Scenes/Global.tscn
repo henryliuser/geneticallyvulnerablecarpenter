@@ -39,7 +39,7 @@ margin_bottom = 85.0
 custom_fonts/font = SubResource( 3 )
 text = "HP: 100"
 
-[node name="up" type="Label" parent="TopGUI"]
+[node name="jump" type="Label" parent="TopGUI"]
 margin_left = 1250.0
 margin_top = 5.0
 margin_right = 1525.0
@@ -48,7 +48,7 @@ rect_pivot_offset = Vector2( 225, 0 )
 custom_fonts/font = SubResource( 4 )
 text = "  up: Enter"
 
-[node name="down" type="Label" parent="TopGUI"]
+[node name="crouch" type="Label" parent="TopGUI"]
 margin_left = 1250.0
 margin_top = 45.0
 margin_right = 1525.0
