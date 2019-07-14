@@ -1,6 +1,7 @@
 extends Control
 var gravity = 35
 var playerHP = 100
+var speedMultiplier = 1
 var debug = true
 var pressshit = false
 
