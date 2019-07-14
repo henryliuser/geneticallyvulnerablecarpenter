@@ -25,7 +25,7 @@ var dontChange = {"ui_accept":1,"ui_select":1,"ui_cancel":1,
 "ui_up":1,"ui_down":1,"ui_page_up":1,"ui_page_down":1, "ui_home":1, "ui_end":1}
 
 var labels = ["left","right","jump","atk","fix","duck"]
-var moves = [" Left: ", "Right: ", "Jump: ", " Atk: ", "  Fix: ", "Duck: "]
+var moves = [" Left: ", "Right: ", "  Jump: ", "Attack: ", "  Fix: ", "Crouch: "]
 var actions = {"player_left":0, "player_right":1, "player_jump":2, "player_attack":3, "player_fix":4, "player_crouch":5}
 #var moves = ["  Up: ", "Down: ", " Left: ", "Right: ", " Atk: ", "  Fix: "]
 

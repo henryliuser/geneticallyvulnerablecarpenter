@@ -22,7 +22,7 @@ func _input(event):
 
 func checkFix():
 	if playerInRange:
-		if Input.is_action_just_pressed("player_fix") and not fixing and not anybody.fixing:
+		if Input.is_action_just_pressed("player_fix") and not fixing and not anybody.fixing and not functional:
 			print("start fixing")
 			anybody.modulate = Color(0,1,0)
 			anybody.fixing = true

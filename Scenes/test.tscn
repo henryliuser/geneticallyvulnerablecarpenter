@@ -18,7 +18,7 @@ spawning = false
 position = Vector2( 1382.5, 366.593 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1236.69, 529.074 )
+position = Vector2( 1422.06, 62.0254 )
 xDirec = -1.0
 
 [node name="Node2D" type="Node2D" parent="."]
