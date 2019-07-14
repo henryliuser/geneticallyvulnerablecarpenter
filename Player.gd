@@ -138,6 +138,6 @@ func animate():
 		anim.play("idle")
 	
 func attack():
-	var 
-
+	anim.play("attack")
+	
 
