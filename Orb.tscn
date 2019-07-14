@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Orb.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/orb0.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/orb1.png" type="Texture" id=3]
 
@@ -31,9 +31,15 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 
 [node name="hitBox" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 30 )
+enabled = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

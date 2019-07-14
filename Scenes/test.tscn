@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Heal Machine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Orb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/TurretSystem.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
@@ -18,7 +19,7 @@ spawning = false
 position = Vector2( 1382.5, 366.593 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1422.06, 62.0254 )
+position = Vector2( 687.944, 806.788 )
 xDirec = -1.0
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -95,4 +96,10 @@ shape = SubResource( 1 )
 position = Vector2( 1591.63, 329.72 )
 
 [node name="Orb" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1059.49, 359.827 )
+position = Vector2( 411.965, 459.18 )
+speed = 600
+dip = true
+
+[node name="TurretSystem" parent="." instance=ExtResource( 7 )]
+position = Vector2( -33.5744, 495.222 )
+burst = 3

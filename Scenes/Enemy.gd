@@ -1,6 +1,11 @@
 extends KinematicBody2D
 export var speed = 400
 export var xDirec = 1.0
+export var patrolX = false
+export var xCoord = Vector2(0,0)
+export var patrolY = false
+export var yCoord = Vector2(0,0)
+
 var velocity = Vector2(400,0)
 var gravity = 35
 

@@ -25,7 +25,6 @@ playing = true
 
 [node name="physicsBox" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 1.30112 )
-scale = Vector2( 1, 1 )
 polygon = PoolVector2Array( -16.4507, -23.4944, -27.2934, 23.129, 28.8716, 24.2133, 25.1851, 11.6358, -14.9327, -24.7955 )
 
 [node name="Area2D" type="Area2D" parent="."]

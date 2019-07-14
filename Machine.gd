@@ -6,8 +6,12 @@ var playerInRange = false
 var fixing = false
 var moves = ["player_left","player_right","player_jump","player_crouch","player_fix","player_attack"]
 var progress = 0
-var currentMove = moves[randi()%6]
+var currentMove = "" 
 var input = null
+
+func _ready():
+	randomize()
+	currentMove = moves[randi()%6]
 
 func _input(event):
 	input = null
