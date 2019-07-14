@@ -12,10 +12,10 @@ func _on_Area2D_body_entered(body):
 		playerInRange = true
 		
 func _on_Area2D_body_exited(body):
-	anybody = null
-	playerInRange = false
 	if body.has_method("startHealing"):
 		body.stopHealing()
+		anybody = null
+		playerInRange = false
 	
 func _on_Area2D_area_entered(area): #{           //also this is for enemies
 	Global.scrambleControls()
