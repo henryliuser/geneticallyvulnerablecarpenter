@@ -30,7 +30,7 @@ polygon = PoolVector2Array( -16.4507, -23.4944, -27.2934, 23.129, 28.8716, 24.21
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2( 1.05, 1.05 )
 collision_layer = 7
-collision_mask = 7
+collision_mask = 3
 
 [node name="hitBox" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2( 0, 1.23916 )

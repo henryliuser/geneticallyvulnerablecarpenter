@@ -2,7 +2,6 @@ extends "res://Machine.gd"
 export var delay = 60
 export var burst = 1
 onready var anim = $AnimatedSprite
-onready var prompt = $prompt
 
 var timer = 0
 var burstCount = 0

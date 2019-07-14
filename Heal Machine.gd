@@ -1,6 +1,6 @@
 extends "res://Machine.gd"
+
 onready var anim = $AnimatedSprite
-onready var prompt = $prompt
 
 func _physics_process(delta):
 	checkFix()

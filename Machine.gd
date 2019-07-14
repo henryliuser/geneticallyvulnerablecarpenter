@@ -8,6 +8,7 @@ var moves = ["player_left","player_right","player_jump","player_crouch","player_
 var progress = 0
 var currentMove = "" 
 var input = null
+onready var prompt = $prompt
 
 func _ready():
 	randomize()
@@ -19,7 +20,7 @@ func _input(event):
 		input = event.scancode
 	elif event is InputEventKey and event.pressed and fixing and anybody.fixing and event.is_echo():
 		input = null
-	get_tree().set_input_as_handled()
+	#get_tree().set_input_as_handled() dont uncomment this its a curse
 #	print(input)
 #	print(Global.keyToText.get(input))
 #	print("from _input")
@@ -36,8 +37,14 @@ func checkFix():
 		else:
 			fixing = false
 			anybody.fixing = false
+			anybody.modulate = Color(1,1,1,1)
+			prompt.play("default")
+			
 		
 func _on_Area2D_area_entered(area): #{           //also this is for enemies
+	if fixing:
+		fixing = false
+		Global.scrambleControls()
 	if functional:
 		Global.scrambleControls()
 		functional = false

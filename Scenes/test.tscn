@@ -4,9 +4,9 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Slime.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Heal Machine.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Orb.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/TurretSystem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Speed Machine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Generic Machine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Heal Machine.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
@@ -19,7 +19,7 @@ spawning = false
 position = Vector2( 1382.5, 366.593 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1422.06, 62.0254 )
+position = Vector2( 789.418, 400.415 )
 xDirec = -1.0
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -92,11 +92,11 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/block4"]
 shape = SubResource( 1 )
 
-[node name="Heal Machine" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1591.63, 329.72 )
+[node name="Speed Machine" parent="." instance=ExtResource( 5 )]
+position = Vector2( 210.881, 603.217 )
 
-[node name="Orb" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1059.49, 359.827 )
+[node name="Generic Machine" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1245.67, 559.079 )
 
-[node name="Turret" parent="." instance=ExtResource( 7 )]
-position = Vector2( 312.425, 655.535 )
+[node name="Heal Machine" parent="." instance=ExtResource( 7 )]
+position = Vector2( 750.343, 833.714 )
