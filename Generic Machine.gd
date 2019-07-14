@@ -5,17 +5,6 @@ onready var prompt = $prompt
 func _physics_process(delta):
 	checkFix()
 
-func _on_Area2D_body_entered(body):
-	if body.has_method("startHealing"):
-		if functional: 
-			body.startHealing()
-		anybody = body
-		
-func _on_Area2D_body_exited(body):
-	if body.has_method("startHealing"):
-		body.stopHealing()
-		anybody = null
-
 func fix():
 	prompt.play(Global.labels[Global.actions.get(currentMove)])
 #	print(input)
@@ -39,7 +28,6 @@ func fix():
 		anybody.fixing = false
 		functional = true
 		anybody.modulate = Color(1,1,1,1)
-		anybody.startHealing()
 		anim.play("idle")
 		prompt.play("default")
 
@@ -51,10 +39,10 @@ func _on_FixRadius_body_entered(body):
 
 
 func _on_FixRadius_body_exited(body):
+	anybody = null
 	playerInRange = false
 
 
 func _on_BreakRadius_area_entered(area):
 	._on_Area2D_area_entered(area)
-	if anybody != null: anybody.stopHealing()
 	anim.play("dead")

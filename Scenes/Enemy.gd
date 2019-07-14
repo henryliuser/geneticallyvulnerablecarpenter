@@ -13,8 +13,6 @@ func _ready():
 	gravity = Global.gravity
 
 func _physics_process(delta):
-	Global.dPrint(self,str(xDirec))
-	Global.dPrint(self,str(velocity))
 	imposeGravity()
 #	if Global.debug:
 #		Global.dPrint(self,str(velocity))

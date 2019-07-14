@@ -61,26 +61,34 @@ func parseInputs(lerpWeight):
 	if Input.is_action_just_pressed("player_jump"):
 		if midairJumpsLeft > 0 && not grounded:
 			midairJumpsLeft -= 1
-			velocity.y = -jumpSpeed
+			velocity.y = -jumpSpeed * Global.speedMultiplier
 		elif grounded:
-			velocity.y = -jumpSpeed
+			velocity.y = -jumpSpeed * Global.speedMultiplier
 
 	var left = Input.is_action_pressed("player_left");
 	var right = Input.is_action_pressed("player_right");
+	var attack = Input.is_action_just_pressed("player_attack")
+	var crouch = Input.is_action_just_pressed("player_crouch")
+	
+	if attack: pass
+	
+	if crouch:
+		anim.play("crouch")
+		$hurtBox
 	
 	var maxSpeeds
-	if grounded: maxSpeeds = maxVelocity
-	else: maxSpeeds = maxAirVelocity
+	if grounded: maxSpeeds = maxVelocity * Global.speedMultiplier
+	else: maxSpeeds = maxAirVelocity * Global.speedMultiplier
 	
 	if right && not left:
-		velocity.x += acceleration
-		velocity.x = min(velocity.x, maxSpeeds.x)
+		velocity.x += acceleration * Global.speedMultiplier
+		velocity.x = min(velocity.x, maxSpeeds.x * Global.speedMultiplier)
 	elif left && not right:
-		velocity.x -= acceleration
-		velocity.x = max(velocity.x, -maxSpeeds.x)
+		velocity.x -= acceleration * Global.speedMultiplier
+		velocity.x = max(velocity.x, -maxSpeeds.x * Global.speedMultiplier)
 	else:
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
-	velocity.y = min(velocity.y, maxSpeeds.y)
+	velocity.y = min(velocity.y, maxSpeeds.y * Global.speedMultiplier)
 
 func healing():
 	if healing:

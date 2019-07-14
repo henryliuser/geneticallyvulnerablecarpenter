@@ -1,20 +1,10 @@
 extends "res://Machine.gd"
 onready var anim = $AnimatedSprite
 onready var prompt = $prompt
+var speedMultiplier = 2
 
 func _physics_process(delta):
 	checkFix()
-
-func _on_Area2D_body_entered(body):
-	if body.has_method("startHealing"):
-		if functional: 
-			body.startHealing()
-		anybody = body
-		
-func _on_Area2D_body_exited(body):
-	if body.has_method("startHealing"):
-		body.stopHealing()
-		anybody = null
 
 func fix():
 	prompt.play(Global.labels[Global.actions.get(currentMove)])
@@ -34,14 +24,15 @@ func fix():
 		anybody.fixing = false
 		anim.play("dead")
 		prompt.play("default")
+		Global.speedMultiplier = 1
 	if progress == difficulty:
 		fixing = false
 		anybody.fixing = false
 		functional = true
 		anybody.modulate = Color(1,1,1,1)
-		anybody.startHealing()
 		anim.play("idle")
 		prompt.play("default")
+		Global.speedMultiplier = speedMultiplier
 
 
 
@@ -51,10 +42,11 @@ func _on_FixRadius_body_entered(body):
 
 
 func _on_FixRadius_body_exited(body):
+	anybody = null
 	playerInRange = false
 
 
 func _on_BreakRadius_area_entered(area):
 	._on_Area2D_area_entered(area)
-	if anybody != null: anybody.stopHealing()
 	anim.play("dead")
+	Global.speedMultiplier = 1

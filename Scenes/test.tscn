@@ -101,5 +101,7 @@ speed = 600
 dip = true
 
 [node name="TurretSystem" parent="." instance=ExtResource( 7 )]
-position = Vector2( -33.5744, 495.222 )
+position = Vector2( 132.199, 616.929 )
 burst = 3
+
+[editable path="TurretSystem"]

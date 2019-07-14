@@ -38,9 +38,9 @@ func checkFix():
 			anybody.fixing = false
 		
 func _on_Area2D_area_entered(area): #{           //also this is for enemies
-	Global.scrambleControls()
-	if anybody != null: anybody.stopHealing()
-	functional = false
+	if functional:
+		Global.scrambleControls()
+		functional = false
 #}
 
 func fix():
