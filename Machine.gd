@@ -10,11 +10,15 @@ var currentMove = moves[randi()%6]
 var input = null
 
 func _input(event):
+	input = null
 	if event is InputEventKey and event.pressed and fixing and anybody.fixing and not event.is_echo():
 		input = event.scancode
 	elif event is InputEventKey and event.pressed and fixing and anybody.fixing and event.is_echo():
 		input = null
 	get_tree().set_input_as_handled()
+#	print(input)
+#	print(Global.keyToText.get(input))
+#	print("from _input")
 
 func checkFix():
 	if playerInRange:
@@ -37,8 +41,10 @@ func _on_Area2D_area_entered(area): #{           //also this is for enemies
 
 func fix():
 	print(currentMove)
-	print(input)
-	if input is InputMap.get_action_list(currentMove)[0]:
+#	print(input)
+#	print(InputMap.get_action_list(currentMove)[0])
+#	print("from fix")
+	if input == InputMap.get_action_list(currentMove)[0].scancode:
 		progress += 1
 		currentMove = moves[randi()%6]
 		input = null
@@ -51,6 +57,8 @@ func fix():
 	if progress == difficulty:
 		fixing = false
 		anybody.fixing = false
+		functional = true
+		anybody.modulate = Color(1,1,1,1)
 
 		
 	
