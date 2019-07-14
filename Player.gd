@@ -70,7 +70,8 @@ func parseInputs(lerpWeight):
 	var attack = Input.is_action_just_pressed("player_attack")
 	var crouch = Input.is_action_just_pressed("player_crouch")
 	
-	if attack: pass
+	if attack: 
+		attack()
 	
 	if crouch:
 		anim.play("crouch")
@@ -136,5 +137,7 @@ func animate():
 	else:
 		anim.play("idle")
 	
-		
+func attack():
+	var 
+
 
