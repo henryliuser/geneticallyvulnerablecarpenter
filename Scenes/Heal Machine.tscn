@@ -8,8 +8,8 @@
 [ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=6]
 [ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=7]
 [ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=8]
-[ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=9]
-[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/fixprompts0003.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -57,12 +57,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "jump",
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "duck",
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -96,6 +96,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource( 2 )
 
 [node name="prompt" type="AnimatedSprite" parent="."]
