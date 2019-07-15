@@ -142,7 +142,7 @@ func hurtEnemy(enemy):
 func getHurt(dmg):
 	inHitStun = true
 	hitStunTimer += 1
-	modulate = Color(1,0,0,0.4)
+	modulate = Global.hurtColor
 	fixing = false
 	midairJumpsLeft = 0
 	Global.playerHurt(dmg)
@@ -160,6 +160,8 @@ func animate():
 		anim.play("fall")
 	elif velocity.x != 0:
 		anim.play("walk")
+	elif Input.is_action_pressed("player_crouch"):
+		anim.play("crouch")
 	else:
 		anim.play("idle")
 

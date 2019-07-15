@@ -5,7 +5,7 @@ var speedMultiplier = 1
 var debug = true
 var pressshit = false
 onready var scrambleAnim = $scramble
-
+const hurtColor = Color(0.5,0,1,0.5)
 var keyToText = {KEY_SHIFT:"SHIFT",KEY_ENTER:"ENTER",KEY_CONTROL:"CTRL",
 KEY_SPACE:"SPACE",KEY_COMMA:",",KEY_COLON:":",KEY_PERIOD:".",KEY_SLASH:"/",
 KEY_SEMICOLON:";",KEY_APOSTROPHE:"\'",KEY_BRACKETLEFT:"[",KEY_BRACKETRIGHT:"]",

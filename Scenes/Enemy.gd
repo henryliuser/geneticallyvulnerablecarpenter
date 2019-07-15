@@ -58,7 +58,7 @@ func _on_Area2D_body_entered(body):
 			xDirec *= -1
 
 func hurtWrench(vel):
-	modulate = Color(1,0,0,0.4)
+	modulate = Global.hurtColor
 	hurt = true;
 	hurtTimer += 1
 	velocity.x = vel
