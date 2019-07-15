@@ -31,7 +31,7 @@ func _input(event):
 
 func checkFix():
 	if playerInRange:
-		if Input.is_action_just_pressed("player_fix") and not fixing and not anybody.fixing and not functional:
+		if not fixing and not anybody.fixing and not functional and Input.is_action_just_pressed("player_fix"):
 			anybody.velocity = Vector2(0,0)
 			anybody.fixing = true
 			fixing = true
