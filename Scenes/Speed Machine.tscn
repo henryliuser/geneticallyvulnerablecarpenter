@@ -1,23 +1,24 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Speed Machine.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/speedcube0000.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/speedcube0003.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/speedcube0004.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=5]
-[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=6]
-[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=7]
-[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/fixprompts0003.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/cradle0000.png" type="Texture" id=11]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 75, 45 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 38.5, 37 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -35,16 +36,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -54,12 +55,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "atk",
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "duck",
+"name": "atk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -74,7 +75,7 @@ animations = [ {
 } ]
 
 [node name="Speed Machine" type="Node2D"]
-scale = Vector2( 2.5, 2.5 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
 [node name="FixRadius" type="Area2D" parent="."]
@@ -82,22 +83,27 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FixRadius"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="BreakRadius" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakRadius"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
-animation = "idle"
+frames = SubResource( 3 )
+animation = "dead"
 
 [node name="prompt" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -56.676 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
+
+[node name="cradle0000" type="Sprite" parent="."]
+position = Vector2( 0, 35 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 11 )
 [connection signal="body_entered" from="FixRadius" to="." method="_on_FixRadius_body_entered"]
 [connection signal="body_exited" from="FixRadius" to="." method="_on_FixRadius_body_exited"]
 [connection signal="area_entered" from="BreakRadius" to="." method="_on_BreakRadius_area_entered"]

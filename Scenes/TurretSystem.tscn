@@ -5,17 +5,17 @@
 [ext_resource path="res://Graphics/speedcube0000.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/speedcube0003.png" type="Texture" id=4]
 [ext_resource path="res://Graphics/speedcube0004.png" type="Texture" id=5]
-[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=6]
-[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=7]
-[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=8]
-[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=9]
 [ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=10]
 [ext_resource path="res://Graphics/fixprompts0003.png" type="Texture" id=11]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 64 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -33,22 +33,22 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 75, 37 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 38.5, 37 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -58,12 +58,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "atk",
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "duck",
+"name": "atk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -87,12 +87,12 @@ scale = Vector2( 0.5, 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Lazors" type="Node2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 animation = "idle"
 
 [node name="FixRadius" type="Area2D" parent="."]
@@ -100,14 +100,14 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FixRadius"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="BreakRadius" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakRadius"]
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="prompt" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -56.676 )

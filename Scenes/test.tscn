@@ -35,6 +35,7 @@ position = Vector2( 490, 740 )
 xDirec = -1.0
 
 [node name="Node2D" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="block" type="StaticBody2D" parent="Node2D"]
 editor/display_folded = true
@@ -96,10 +97,17 @@ speed = 600
 dip = true
 
 [node name="TurretSystem" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 1665.75, 1280 )
 burst = 3
 
 [node name="Lazors" parent="TurretSystem" index="2"]
 position = Vector2( 1.84265, 0 )
+
+[node name="FixRadius" parent="TurretSystem" index="4"]
+editor/display_folded = true
+
+[node name="BreakRadius" parent="TurretSystem" index="5"]
+editor/display_folded = true
 
 [editable path="TurretSystem"]
