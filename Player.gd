@@ -51,9 +51,9 @@ func _physics_process(delta):
 		calculateAttack()
 	if not fixing and not inHitStun:
 		movement()
+	velocity = move_and_slide(velocity*Global.speedMultiplier, Global.UP)
 	if not attacking:
 		animate()
-	velocity = move_and_slide(velocity*Global.speedMultiplier, Global.UP)
 	print(velocity)
 #---------------------------------------------
 func calculateHitStun():
@@ -77,8 +77,8 @@ func calculateJump():
 	if is_on_floor():
 		grounded = true
 		midairJumpsLeft = totalJumps-1
-	elif is_on_ceiling():
-		velocity.y = 1
+#	if is_on_ceiling():
+#		velocity.y = 10
 	else: 
 		grounded = false
 
@@ -155,19 +155,24 @@ func stopHealing():
 	healing = false
 	
 func animate():
-	if velocity.x > 0:
+	if velocity.y < 0:
+		anim.play("jump")
+	elif velocity.y > 0:
+		anim.play("fall")
+	elif velocity.x != 0:
 		anim.play("walk")
+	else:
+		anim.play("idle")
+
+	if velocity.x > 0:
 		anim.flip_h = false
 		attackOrigin.position.x = originDist
 	elif velocity.x < 0:
-		anim.play("walk")
 		anim.flip_h = true
 		attackOrigin.position.x = -originDist
-	else:
-		anim.play("idle")
 	
 func startAttack():
-	anim.play("fixing")
+	anim.play("attack22")
 	attacking = true
 	attackTimer += 1
 

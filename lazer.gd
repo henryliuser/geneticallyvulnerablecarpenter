@@ -1,5 +1,5 @@
 extends Sprite
-var velocity = 6000
+var velocity = 600
 var direction = 1
 const life = 300
 var frameTimer = 0

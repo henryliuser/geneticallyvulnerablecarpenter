@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	timer += 1
 	if burst != 1:
-		if timer%5 == 0 and burstCount < burst:
+		if timer%5 == 0 and burstCount < burst-1:
 			shoot()
 			burstCount += 1
 	if timer > delay:
@@ -24,6 +24,7 @@ func _process(delta):
 
 func shoot():
 	var lazer = load("res://Scenes/lazer.tscn").instance()
+	lazer.position = Vector2(0,-15)
 	lazarus.add_child(lazer)
 	
 func _physics_process(delta):
