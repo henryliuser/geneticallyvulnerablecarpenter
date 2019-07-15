@@ -1,15 +1,14 @@
-
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Turret.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/turret0000.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/turret0001.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/turret0002.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/turret0001.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/turret0002.png" type="Texture" id=5]
 [ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=6]
 [ext_resource path="res://Graphics/fixprompts0003.png" type="Texture" id=7]
-[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=8]
-[ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 64 )
@@ -18,17 +17,17 @@ extents = Vector2( 32, 64 )
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "idle",
+"name": "dead",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "hurt",
+"name": "idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "dead",
+"name": "hurt",
 "speed": 5.0
 } ]
 
@@ -55,20 +54,19 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "fix",
-"speed": 5.0
-}, {
-
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "duck",
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "jump",
+"name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fix",
 "speed": 5.0
 } ]
 

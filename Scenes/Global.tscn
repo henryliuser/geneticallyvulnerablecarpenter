@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Global.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/lv1small0000.png" type="Texture" id=2]
 [ext_resource path="res://joystix monospace.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Graphics/mutation00000000.png" type="Texture" id=4]
 [ext_resource path="res://Graphics/transparent.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/death0000.png" type="Texture" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -34,6 +35,10 @@ animations = [ {
 "name": "New Anim",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+font_data = ExtResource( 3 )
 
 [node name="Global" type="Control"]
 anchor_right = 1.0
@@ -115,3 +120,16 @@ text = "  fix: j"
 position = Vector2( 979.008, 511.457 )
 frames = SubResource( 5 )
 animation = "New Anim"
+
+[node name="death0000" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 540 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="death0000"]
+margin_left = -360.0
+margin_top = 75.739
+margin_right = 360.0
+margin_bottom = 133.739
+custom_fonts/font = SubResource( 6 )
+text = "PRESS ESC TO RESET"
