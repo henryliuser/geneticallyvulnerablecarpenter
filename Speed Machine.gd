@@ -32,6 +32,7 @@ func fix():
 		anim.play("idle")
 		prompt.play("default")
 		Global.speedMultiplier *= speedMultiplier
+		progress = 0
 
 
 

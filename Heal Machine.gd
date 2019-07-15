@@ -42,6 +42,7 @@ func fix():
 		anybody.startHealing()
 		anim.play("idle")
 		prompt.play("default")
+		progress = 0
 
 
 
