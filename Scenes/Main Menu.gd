@@ -11,3 +11,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Button_pressed(): #quit
+	get_tree().quit()
+
+
+func _on_PlayButton_pressed(): #play
+	get_tree().change_scene("")

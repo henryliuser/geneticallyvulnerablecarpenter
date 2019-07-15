@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Main Menu.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/workingtitle00000000.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/button0000.png" type="Texture" id=3]
+[ext_resource path="res://joystix monospace.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.995227, 1 )
@@ -9,6 +12,14 @@ colors = PoolColorArray( 0.780392, 0.435294, 0.435294, 1, 0.16946, 0.794871, 0.6
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 width = 1920
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 70
+font_data = ExtResource( 4 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
@@ -30,3 +41,52 @@ margin_bottom = 174.515
 text = "GOOD JOB
 
 "
+
+[node name="workingtitle00000000" type="Sprite" parent="."]
+position = Vector2( 958.336, 539.521 )
+scale = Vector2( 1.33, 1.33 )
+texture = ExtResource( 2 )
+
+[node name="button0000" type="Sprite" parent="workingtitle00000000"]
+position = Vector2( -270, 150 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="PlayButton" type="Button" parent="workingtitle00000000/button0000"]
+visible = false
+margin_left = -138.636
+margin_top = -58.1818
+margin_right = 166.364
+margin_bottom = 75.8182
+icon = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="workingtitle00000000/button0000"]
+margin_left = -112.508
+margin_top = -46.2534
+margin_right = 119.492
+margin_bottom = 37.7466
+custom_fonts/font = SubResource( 3 )
+text = "PLAY"
+
+[node name="button0001" type="Sprite" parent="workingtitle00000000"]
+position = Vector2( 270, 150 )
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="workingtitle00000000/button0001"]
+visible = false
+margin_left = -138.636
+margin_top = -58.1818
+margin_right = 166.364
+margin_bottom = 75.8182
+icon = ExtResource( 3 )
+
+[node name="Label2" type="Label" parent="workingtitle00000000/button0001"]
+margin_left = -113.381
+margin_top = -45.0034
+margin_right = 118.619
+margin_bottom = 38.9966
+custom_fonts/font = SubResource( 4 )
+text = "QUIT"
+[connection signal="pressed" from="workingtitle00000000/button0000/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="workingtitle00000000/button0001/Button" to="." method="_on_Button_pressed"]
