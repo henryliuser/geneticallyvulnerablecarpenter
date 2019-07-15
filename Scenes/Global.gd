@@ -29,6 +29,7 @@ var dontChange = {"ui_accept":1,"ui_select":1,"ui_cancel":1,
 var labels = ["left","right","jump","atk","fix","duck"]
 var moves = [" Left: ", "Right: ", "  Jump: ", "Attack: ", "  Fix: ", "Crouch: "]
 var actions = {"player_left":0, "player_right":1, "player_jump":2, "player_attack":3, "player_fix":4, "player_crouch":5}
+var actionss = {"player_left":KEY_A, "player_right":KEY_D, "player_jump":KEY_SPACE, "player_attack":KEY_H, "player_fix":KEY_J, "player_crouch":KEY_S}
 #var moves = ["  Up: ", "Down: ", " Left: ", "Right: ", " Atk: ", "  Fix: "]
 var dead = false
 onready var gui = $TopGUI
@@ -44,7 +45,7 @@ func _process(delta):
 			dead = false
 			playerHP = 100
 			$CanvasLayer/death0000.visible = false
-			#nidhir do this please reset controls dlfhds[oufjao[fu]]
+			resetControls()
 			get_tree().change_scene("res://Scenes/Main Menu.tscn")
 	
 
@@ -59,6 +60,23 @@ func playerHurt(dmg):
 	if playerHP <= 0:
 		dead = true
 		$CanvasLayer/death0000.visible = true
+
+func resetControls():
+	for action in InputMap.get_actions():
+		if dontChange.get(action) != 1:
+			var nodeIndex = actions.get(action);
+			var eventKey = actionss.get(action)
+			var event = InputEventKey.new()
+			event.scancode = eventKey
+			InputMap.get_action_list(action)[0].set_pressed(false)
+			var ev = InputEventAction.new()
+			InputMap.action_erase_events(action)
+			InputMap.action_add_event(action, event)
+			ev.set_action(action)
+			ev.set_pressed(false)
+			Input.parse_input_event(ev)
+			get_node("TopGUI/"+labels[nodeIndex]).text = moves[nodeIndex] + keyToText.get(eventKey)
+			nodeIndex += 1
 
 func scrambleControls():
 	for action in InputMap.get_actions():
