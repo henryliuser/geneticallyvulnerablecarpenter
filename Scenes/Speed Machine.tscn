@@ -75,7 +75,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 38.5, 37 )
+extents = Vector2( 38.4, 36.9 )
 
 [node name="Speed Machine" type="Node2D"]
 scale = Vector2( 2, 2 )

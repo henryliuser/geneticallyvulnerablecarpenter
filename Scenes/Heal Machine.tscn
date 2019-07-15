@@ -79,7 +79,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 38.5, 37 )
+extents = Vector2( 38.4, 36.9 )
 
 [node name="Heal Machine" type="Node2D"]
 scale = Vector2( 2, 2 )
@@ -120,7 +120,6 @@ shape = SubResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "dead"
-offset = Vector2( 2, 5 )
 
 [node name="cradle0000" type="Sprite" parent="."]
 position = Vector2( 0, 35 )

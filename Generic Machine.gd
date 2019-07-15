@@ -30,6 +30,7 @@ func fix():
 		anybody.modulate = Color(1,1,1,1)
 		anim.play("idle")
 		prompt.play("default")
+		progress = 0
 
 
 
