@@ -30,21 +30,21 @@ var labels = ["left","right","jump","atk","fix","duck"]
 var moves = [" Left: ", "Right: ", "  Jump: ", "Attack: ", "  Fix: ", "Crouch: "]
 var actions = {"player_left":0, "player_right":1, "player_jump":2, "player_attack":3, "player_fix":4, "player_crouch":5}
 #var moves = ["  Up: ", "Down: ", " Left: ", "Right: ", " Atk: ", "  Fix: "]
-
-
+var dead = false
+onready var gui = $TopGUI
 const UP = Vector2(0,-1)
-
 func _ready():
 	randomize()
+	
 
 func _process(delta):
 	$TopGUI/health.text = "HP: " + str(playerHP)
-
-#	if pressshit:
-#		for action in InputMap.get_actions():
-#			if dontChange.get(action) != 1:
-#				get_tree().input_event(InputMap.get_action_list(action)[0]) #press everything
-#		pressshit = false
+	if dead:
+		if Input.is_action_pressed("ui_accept"):
+			dead = false
+			playerHP = 100
+			#nidhir do this please reset controls dlfhds[oufjao[fu]]
+			get_tree().change_scene("res://Scenes/Main Menu.tscn")
 	
 
 static func dPrint(node,string):
@@ -56,7 +56,8 @@ static func getSign(a):
 func playerHurt(dmg):
 	playerHP -= dmg
 	if playerHP <= 0:
-		get_tree().change_scene("res://Scenes/Main Menu.tscn")
+		dead = true
+		$death0000.visible = true
 
 func scrambleControls():
 	for action in InputMap.get_actions():

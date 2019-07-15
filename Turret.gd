@@ -1,6 +1,7 @@
 extends "res://Machine.gd"
 export var delay = 60
 export var burst = 1
+export var direccion = 1
 onready var anim = $AnimatedSprite
 
 var timer = 0
@@ -25,6 +26,7 @@ func _process(delta):
 func shoot():
 	var lazer = load("res://Scenes/lazer.tscn").instance()
 	lazer.position = Vector2(0,-15)
+	lazer.direction = direccion
 	lazarus.add_child(lazer)
 	
 func _physics_process(delta):

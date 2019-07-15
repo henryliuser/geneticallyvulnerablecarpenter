@@ -40,7 +40,8 @@ func _ready():
 	attackHitbox = load("res://Scenes/playerAttackHitBox.tscn")
 	
 func _physics_process(delta):
-	
+	if position.y > 1200:
+		Global.playerHP = 0
 	imposeGravity()
 	calculateJump()
 	checkInvuln()
@@ -146,6 +147,8 @@ func getHurt(dmg):
 	fixing = false
 	midairJumpsLeft = 0
 	Global.playerHurt(dmg)
+	if Global.playerHP <= 0:
+		queue_free()
 	invuln = true
 
 func startHealing():
