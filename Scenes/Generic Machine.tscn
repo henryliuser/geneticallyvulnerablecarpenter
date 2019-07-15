@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Generic Machine.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/mach1.png" type="Texture" id=2]
@@ -74,6 +74,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 38.5, 37 )
+
 [node name="Generic Machine" type="Node2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -104,6 +107,13 @@ frames = SubResource( 4 )
 position = Vector2( 0, 35 )
 scale = Vector2( 1, 1 )
 texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 7 )
 [connection signal="body_entered" from="FixRadius" to="." method="_on_FixRadius_body_entered"]
 [connection signal="body_exited" from="FixRadius" to="." method="_on_FixRadius_body_exited"]
 [connection signal="area_entered" from="BreakRadius" to="." method="_on_BreakRadius_area_entered"]
