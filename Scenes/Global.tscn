@@ -121,12 +121,14 @@ position = Vector2( 979.008, 511.457 )
 frames = SubResource( 5 )
 animation = "New Anim"
 
-[node name="death0000" type="Sprite" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="death0000" type="Sprite" parent="CanvasLayer"]
 visible = false
-position = Vector2( 960, 540 )
+position = Vector2( 959.254, 540 )
 texture = ExtResource( 6 )
 
-[node name="Label" type="Label" parent="death0000"]
+[node name="Label" type="Label" parent="CanvasLayer/death0000"]
 margin_left = -360.0
 margin_top = 75.739
 margin_right = 360.0
