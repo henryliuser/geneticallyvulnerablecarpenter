@@ -27,6 +27,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Global.UP)
 	if is_on_wall():
 		xDirec *= -1
+	if position.y > 1100:
+		die()
 
 func calculateDirection():
 	if not orb:

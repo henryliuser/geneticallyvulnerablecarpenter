@@ -31,7 +31,7 @@ position = Vector2( 990, 770 )
 xDirec = -1.0
 
 [node name="Enemy6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 490, 740 )
+position = Vector2( 488.24, 868.048 )
 xDirec = -1.0
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -92,15 +92,9 @@ shape = SubResource( 1 )
 position = Vector2( 1650, 450 )
 
 [node name="Orb" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1070, -100 )
+position = Vector2( 969.208, 171.927 )
 speed = 600
 dip = true
 
 [node name="TurretSystem" parent="." instance=ExtResource( 8 )]
-position = Vector2( 270, 820 )
-burst = 3
-
-[node name="Lazors" parent="TurretSystem" index="1"]
-position = Vector2( 1.84265, 0 )
-
-[editable path="TurretSystem"]
+position = Vector2( 262.52, 864.081 )

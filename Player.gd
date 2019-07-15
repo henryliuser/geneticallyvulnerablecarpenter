@@ -54,7 +54,6 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity*Global.speedMultiplier, Global.UP)
 	if not attacking:
 		animate()
-	print(velocity)
 #---------------------------------------------
 func calculateHitStun():
 	hitStunTimer += 1

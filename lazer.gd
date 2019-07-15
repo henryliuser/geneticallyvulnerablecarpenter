@@ -9,6 +9,7 @@ func _physics_process(delta):
 	if frameTimer > life:
 		queue_free()
 
-func _on_Area2D_area_entered(area):
-	if area.has_method("hurt"):
-		area.hurt()
+func _on_Area2D_body_entered(body):
+	if body.has_method("hurtWrench"):
+		body.hurtWrench(velocity*direction/2)
+		queue_free()
