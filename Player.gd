@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2(0,0)
-export var acceleration = 50
+export var acceleration = 70
 export var jumpSpeed = 800
 export var gravity = 35
 export var maxAirVelocity = Vector2(450,1500)
@@ -12,31 +12,56 @@ const iframes = 60
 var iTimer = 0
 var invuln = false
 
+const hitStunTime = 25
+var inHitStun = false
+var hitStunTimer = 0
+
 var healing = false
 var hTimer = 0
 
 var fixing = false
+
+var attacking = false
+var attackTimer = 0
 
 var grounded = true
 var midairJumpsLeft = totalJumps - 1
 var anim
 
 signal animate
-
+var attackHitbox
+var attackOrigin
+const originDist = 30
 #---------------------------------------------
 func _ready():
 	gravity = Global.gravity
 	anim = $AnimatedSprite
-
+	attackOrigin = $hurtBox/attackOrigin
+	attackHitbox = load("res://Scenes/playerAttackHitBox.tscn")
+	
 func _physics_process(delta):
+	
 	imposeGravity()
 	calculateJump()
 	checkInvuln()
 	healing()
-	if not fixing:
+	if inHitStun:
+		calculateHitStun()
+	if attacking: 
+		calculateAttack()
+	if not fixing and not inHitStun:
 		movement()
-	animate()
+	if not attacking:
+		animate()
+	velocity = move_and_slide(velocity*Global.speedMultiplier, Global.UP)
+	print(velocity)
 #---------------------------------------------
+func calculateHitStun():
+	hitStunTimer += 1
+	if hitStunTimer > hitStunTime:
+		hitStunTimer = 0
+		inHitStun = false
+		modulate = Color(1,1,1,1)
 
 func checkInvuln():
 	if invuln:
@@ -61,35 +86,35 @@ func parseInputs(lerpWeight):
 	if Input.is_action_just_pressed("player_jump"):
 		if midairJumpsLeft > 0 && not grounded:
 			midairJumpsLeft -= 1
-			velocity.y = -jumpSpeed * Global.speedMultiplier
+			velocity.y = -jumpSpeed 
 		elif grounded:
-			velocity.y = -jumpSpeed * Global.speedMultiplier
+			velocity.y = -jumpSpeed
 
 	var left = Input.is_action_pressed("player_left");
 	var right = Input.is_action_pressed("player_right");
 	var attack = Input.is_action_just_pressed("player_attack")
 	var crouch = Input.is_action_just_pressed("player_crouch")
 	
-	if attack: 
-		attack()
+	if attack and not attacking:
+		startAttack()
 	
 	if crouch:
 		anim.play("crouch")
 		$hurtBox
 	
 	var maxSpeeds
-	if grounded: maxSpeeds = maxVelocity * Global.speedMultiplier
-	else: maxSpeeds = maxAirVelocity * Global.speedMultiplier
+	if grounded: maxSpeeds = maxVelocity
+	else: maxSpeeds = maxAirVelocity 
 	
 	if right && not left:
-		velocity.x += acceleration * Global.speedMultiplier
-		velocity.x = min(velocity.x, maxSpeeds.x * Global.speedMultiplier)
+		velocity.x += acceleration 
+		velocity.x = min(velocity.x, maxSpeeds.x)
 	elif left && not right:
-		velocity.x -= acceleration * Global.speedMultiplier
-		velocity.x = max(velocity.x, -maxSpeeds.x * Global.speedMultiplier)
+		velocity.x -= acceleration 
+		velocity.x = max(velocity.x, -maxSpeeds.x)
 	else:
 		velocity.x = lerp(velocity.x, 0, lerpWeight)
-	velocity.y = min(velocity.y, maxSpeeds.y * Global.speedMultiplier)
+	velocity.y = min(velocity.y, maxSpeeds.y)
 
 func healing():
 	if healing:
@@ -102,7 +127,6 @@ func healing():
 
 func movement():
 	parseInputs(0.5)
-	velocity = move_and_slide(velocity, Global.UP)
 	if abs(velocity.x) <= 1:
 		velocity.x = 0
 	if abs(velocity.y) <= 1:
@@ -110,13 +134,16 @@ func movement():
 
 func hurtEnemy(enemy):
 	if not invuln:
-		velocity.x += enemy.x * 2.5
+		velocity.x += enemy.x * 1.2
 		velocity.y = enemy.y-jumpSpeed/2
 		getHurt(20)
 		return true
 	else: return false
 
 func getHurt(dmg):
+	inHitStun = true
+	hitStunTimer += 1
+	modulate = Color(1,0,0,0.4)
 	fixing = false
 	midairJumpsLeft = 0
 	Global.playerHurt(dmg)
@@ -131,13 +158,25 @@ func animate():
 	if velocity.x > 0:
 		anim.play("walk")
 		anim.flip_h = false
+		attackOrigin.position.x = originDist
 	elif velocity.x < 0:
 		anim.play("walk")
 		anim.flip_h = true
+		attackOrigin.position.x = -originDist
 	else:
 		anim.play("idle")
 	
-func attack():
-	anim.play("attack")
-	
+func startAttack():
+	anim.play("fixing")
+	attacking = true
+	attackTimer += 1
 
+func calculateAttack():
+	attackTimer += 1
+	if attackTimer == 5:
+		var hitbox = attackHitbox.instance()
+		hitbox.velocity = attackOrigin.position.x/30*400
+		attackOrigin.add_child(hitbox)
+	if attackTimer > 20:
+		attacking = false
+		attackTimer = 0

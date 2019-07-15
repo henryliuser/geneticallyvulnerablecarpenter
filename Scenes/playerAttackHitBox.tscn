@@ -3,8 +3,8 @@
 [ext_resource path="res://Scenes/playerAttackHitBox.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 16.1023
-height = 36.2654
+radius = 17.0
+height = 17.0
 
 [node name="playerAttackHitBox" type="Area2D"]
 collision_layer = 2

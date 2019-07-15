@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Slime.tscn" type="PackedScene" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Heal Machine.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Orb.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/TurretSystem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Slime.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Heal Machine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Orb.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/TurretSystem.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 64 )
@@ -15,11 +16,22 @@ extents = Vector2( 64, 64 )
 script = ExtResource( 1 )
 spawning = false
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1382.5, 366.593 )
+[node name="Platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1560, 650.5 )
 
-[node name="Enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 687.944, 806.788 )
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1300, 350 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1620, 760 )
+xDirec = -1.0
+
+[node name="Enemy5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 990, 770 )
+xDirec = -1.0
+
+[node name="Enemy6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 490, 740 )
 xDirec = -1.0
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -28,7 +40,7 @@ xDirec = -1.0
 editor/display_folded = true
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1013.77, 1013.38 )
-scale = Vector2( 14.24, 1 )
+scale = Vector2( 16.4413, -1.64578 )
 collision_layer = 3
 collision_mask = 3
 __meta__ = {
@@ -36,7 +48,7 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="Node2D/block"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/block"]
 shape = SubResource( 1 )
@@ -44,7 +56,7 @@ shape = SubResource( 1 )
 [node name="block2" type="StaticBody2D" parent="Node2D"]
 editor/display_folded = true
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 326.793, 866.687 )
+position = Vector2( -227.837, 809.566 )
 scale = Vector2( 3.48207, 2.54466 )
 collision_layer = 3
 collision_mask = 3
@@ -53,7 +65,7 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="Node2D/block2"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/block2"]
 shape = SubResource( 1 )
@@ -61,7 +73,7 @@ shape = SubResource( 1 )
 [node name="block3" type="StaticBody2D" parent="Node2D"]
 editor/display_folded = true
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1328.03, 813.296 )
+position = Vector2( 2140.63, 787.499 )
 scale = Vector2( 3.48207, 2.54466 )
 collision_layer = 3
 collision_mask = 3
@@ -70,38 +82,24 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="Node2D/block3"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/block3"]
 shape = SubResource( 1 )
 
-[node name="block4" type="StaticBody2D" parent="Node2D"]
-editor/display_folded = true
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1558.45, 584.142 )
-scale = Vector2( 3.48207, 2.54466 )
-collision_layer = 3
-collision_mask = 3
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Heal Machine" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1650, 450 )
 
-[node name="icon" type="Sprite" parent="Node2D/block4"]
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/block4"]
-shape = SubResource( 1 )
-
-[node name="Heal Machine" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1591.63, 329.72 )
-
-[node name="Orb" parent="." instance=ExtResource( 6 )]
-position = Vector2( 411.965, 459.18 )
+[node name="Orb" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1070, -100 )
 speed = 600
 dip = true
 
-[node name="TurretSystem" parent="." instance=ExtResource( 7 )]
-position = Vector2( 132.199, 616.929 )
+[node name="TurretSystem" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1665.75, 1280 )
 burst = 3
+
+[node name="Lazors" parent="TurretSystem" index="2"]
+position = Vector2( 1.84265, 0 )
 
 [editable path="TurretSystem"]

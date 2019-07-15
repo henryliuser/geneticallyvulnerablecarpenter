@@ -1,6 +1,5 @@
 extends "res://Machine.gd"
 onready var anim = $AnimatedSprite
-onready var prompt = $prompt
 var speedMultiplier = 2
 
 func _physics_process(delta):
@@ -24,7 +23,7 @@ func fix():
 		anybody.fixing = false
 		anim.play("dead")
 		prompt.play("default")
-		Global.speedMultiplier = 1
+		Global.speedMultiplier /= speedMultiplier
 	if progress == difficulty:
 		fixing = false
 		anybody.fixing = false
@@ -32,7 +31,7 @@ func fix():
 		anybody.modulate = Color(1,1,1,1)
 		anim.play("idle")
 		prompt.play("default")
-		Global.speedMultiplier = speedMultiplier
+		Global.speedMultiplier *= speedMultiplier
 
 
 
@@ -49,4 +48,4 @@ func _on_FixRadius_body_exited(body):
 func _on_BreakRadius_area_entered(area):
 	._on_Area2D_area_entered(area)
 	anim.play("dead")
-	Global.speedMultiplier = 1
+	Global.speedMultiplier /= speedMultiplier

@@ -17,6 +17,7 @@ radius = 21.8447
 height = 51.9401
 
 [node name="Orb" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )
@@ -33,7 +34,7 @@ shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 7
-collision_mask = 7
+collision_mask = 3
 
 [node name="hitBox" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708

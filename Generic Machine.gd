@@ -1,6 +1,6 @@
 extends "res://Machine.gd"
+
 onready var anim = $AnimatedSprite
-onready var prompt = $prompt
 
 func _physics_process(delta):
 	checkFix()
@@ -46,3 +46,4 @@ func _on_FixRadius_body_exited(body):
 func _on_BreakRadius_area_entered(area):
 	._on_Area2D_area_entered(area)
 	anim.play("dead")
+	
