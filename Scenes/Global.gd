@@ -4,6 +4,7 @@ var playerHP = 100
 var speedMultiplier = 1
 var debug = true
 var pressshit = false
+onready var scrambleAnim = $scramble
 
 var keyToText = {KEY_SHIFT:"SHIFT",KEY_ENTER:"ENTER",KEY_CONTROL:"CTRL",
 KEY_SPACE:"SPACE",KEY_COMMA:",",KEY_COLON:":",KEY_PERIOD:".",KEY_SLASH:"/",
@@ -81,5 +82,5 @@ func scrambleControls():
 			Input.parse_input_event(ev)
 			get_node("TopGUI/"+labels[nodeIndex]).text = moves[nodeIndex] + keyToText.get(eventKey)
 			nodeIndex += 1
-			
+	scrambleAnim.play("default")
 			#set nodes[nodeindex] to display "actions[nodeindex] + keyToText.get(eventKey)"
