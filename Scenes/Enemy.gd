@@ -13,7 +13,7 @@ var gravity = 35
 
 var hurt = false
 var hurtTimer = 0
-const hitStun = 50
+const hitStun = 30
 
 func _ready():
 	gravity = Global.gravity

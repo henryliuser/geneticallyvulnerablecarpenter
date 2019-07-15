@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/bob0.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/bob0007crouch.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/bob_walk0.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/bob_walk2.png" type="Texture" id=5]
-[ext_resource path="res://Graphics/bob_walk3.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/bob_walk0.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/bob_walk2.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/bob_walk3.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/bob0007crouch.png" type="Texture" id=6]
 [ext_resource path="res://Graphics/bob0011attack1.png" type="Texture" id=7]
 [ext_resource path="res://Graphics/bob0012attack2.png" type="Texture" id=8]
 [ext_resource path="res://Graphics/bob0013attack3.png" type="Texture" id=9]
@@ -20,15 +20,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "jump",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ) ],
 "loop": false,
@@ -49,7 +49,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12.1052, 19.3927 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 12.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -74,4 +74,4 @@ position = Vector2( 30, 0 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -7.73065, -24.5905 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )

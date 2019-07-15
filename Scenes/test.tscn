@@ -97,19 +97,10 @@ speed = 600
 dip = true
 
 [node name="TurretSystem" parent="." instance=ExtResource( 8 )]
-
-editor/display_folded = true
-position = Vector2( 1665.75, 1280 )
-
+position = Vector2( 270, 820 )
 burst = 3
 
 [node name="Lazors" parent="TurretSystem" index="1"]
 position = Vector2( 1.84265, 0 )
-
-[node name="FixRadius" parent="TurretSystem" index="4"]
-editor/display_folded = true
-
-[node name="BreakRadius" parent="TurretSystem" index="5"]
-editor/display_folded = true
 
 [editable path="TurretSystem"]
