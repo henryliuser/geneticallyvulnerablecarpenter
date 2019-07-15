@@ -41,7 +41,7 @@ func _ready():
 	
 func _physics_process(delta):
 	if position.y > 1200:
-		Global.playerHP = 0
+		getHurt(5000)
 	imposeGravity()
 	calculateJump()
 	checkInvuln()
@@ -122,8 +122,10 @@ func healing():
 		if hTimer > 30:
 			Global.playerHP += 1 
 			hTimer = 1
+		modulate = Color(0,1,0,0.8)
 	else:
 		hTimer = 0 
+		modulate = Color(1,1,1,1)
 
 func movement():
 	parseInputs(0.5)

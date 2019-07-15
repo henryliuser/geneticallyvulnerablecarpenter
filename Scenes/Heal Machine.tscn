@@ -2,30 +2,30 @@
 
 [ext_resource path="res://Heal Machine.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/monitor.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=5]
-[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=6]
-[ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=7]
 [ext_resource path="res://Graphics/fixprompts0003.png" type="Texture" id=8]
-[ext_resource path="res://Graphics/healcube0000.png" type="Texture" id=9]
-[ext_resource path="res://Graphics/healcube0003.png" type="Texture" id=10]
-[ext_resource path="res://Graphics/healcube0004.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/healcube0004.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/healcube0000.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/healcube0003.png" type="Texture" id=11]
 [ext_resource path="res://Graphics/cradle0000.png" type="Texture" id=12]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 128.0
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -35,17 +35,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "duck",
+"name": "atk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "atk",
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "jump",
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -54,31 +54,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 75, 45 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 38.5, 37 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": false,
 "name": "hurt",
 "speed": 1.5
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 38.4, 36.9 )
 
 [node name="Heal Machine" type="Node2D"]
@@ -96,18 +96,18 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="prompt" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -56.676 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 
 [node name="FixRadius" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FixRadius"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="BreakRadius" type="Area2D" parent="."]
 editor/display_folded = true
@@ -115,10 +115,10 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakRadius"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "dead"
 
 [node name="cradle0000" type="Sprite" parent="."]
@@ -130,7 +130,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="FixRadius" to="." method="_on_FixRadius_body_entered"]

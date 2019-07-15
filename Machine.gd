@@ -29,7 +29,6 @@ func checkFix():
 	if playerInRange:
 		if Input.is_action_just_pressed("player_fix") and not fixing and not anybody.fixing and not functional:
 			anybody.velocity = Vector2(0,0)
-			anybody.modulate = Color(0,1,0)
 			anybody.fixing = true
 			fixing = true
 		elif fixing and anybody.fixing:
