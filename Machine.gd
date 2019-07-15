@@ -13,6 +13,10 @@ onready var prompt = $prompt
 func _ready():
 	randomize()
 	currentMove = moves[randi()%6]
+	
+func _process(delta):
+	if anybody!= null and not anybody.fixing:
+		fixing = false
 
 func _input(event):
 	input = null

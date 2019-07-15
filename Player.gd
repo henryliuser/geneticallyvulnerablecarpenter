@@ -95,6 +95,8 @@ func parseInputs(lerpWeight):
 	var attack = Input.is_action_just_pressed("player_attack")
 	var crouch = Input.is_action_just_pressed("player_crouch")
 	
+	print(left,right,attack,crouch)
+	
 	if attack and not attacking:
 		startAttack()
 	

@@ -16,6 +16,7 @@ scale = Vector2( 3.175, 1 )
 
 [node name="Turret" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1756.05, 954.252 )
+delay = 120
 direccion = -1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -23,9 +24,10 @@ position = Vector2( 1590, 960 )
 
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource( 4 )
-xPos = 1400
+xPos = 1580
 yPos = -1120
-delay = 400
+xDirec = -1.0
+delay = 500
 
 [node name="machines" type="Node2D" parent="."]
 script = ExtResource( 5 )

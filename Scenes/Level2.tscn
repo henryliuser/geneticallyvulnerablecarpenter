@@ -38,6 +38,12 @@ spawned = "res://Orb.tscn"
 xDirec = -1.0
 delay = 1000
 
+[node name="spawner2" type="Node2D" parent="."]
+position = Vector2( 950, -140 )
+script = ExtResource( 4 )
+xDirec = -1.0
+delay = 2400
+
 [node name="machines" type="Node2D" parent="."]
 script = ExtResource( 5 )
 filepath = "res://Scenes/Tutorial.tscn"
