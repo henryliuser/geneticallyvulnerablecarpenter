@@ -1,29 +1,29 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Machine.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=2]
-[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/fixprompts0002.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/fixprompts0001.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/fixprompts0004.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/fixprompts0005.png" type="Texture" id=5]
 [ext_resource path="res://Graphics/fixprompts0000.png" type="Texture" id=6]
 [ext_resource path="res://Graphics/fixprompts0003.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 75, 37 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 38.5, 37 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -33,12 +33,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "atk",
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "duck",
+"name": "atk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -60,15 +60,15 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FixRadius"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="BreakRadius" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakRadius"]
-shape = SubResource( 8 )
+shape = SubResource( 2 )
 
 [node name="prompt" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -56.676 )
-frames = SubResource( 5 )
+frames = SubResource( 3 )

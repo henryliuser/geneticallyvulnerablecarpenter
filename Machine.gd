@@ -1,6 +1,6 @@
 extends Node2D
 export var difficulty = 5
-var functional = true
+export var functional = false
 var anybody = null
 var playerInRange = false
 var fixing = false

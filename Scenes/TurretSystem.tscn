@@ -42,12 +42,12 @@ extents = Vector2( 38.5, 37 )
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -62,7 +62,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "duck",
+"name": "atk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -81,7 +81,10 @@ scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 position = Vector2( 0, 24 )
+=======
+>>>>>>> 70a584941ef10cb1ecdf53bda0cebcbd89062e51
 shape = SubResource( 1 )
 
 [node name="Lazors" type="Node2D" parent="."]
