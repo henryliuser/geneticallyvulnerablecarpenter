@@ -167,6 +167,8 @@ func animate():
 		anim.play("crouch")
 	else:
 		anim.play("idle")
+	if fixing:
+		anim.play("fixing")
 
 	if velocity.x > 0:
 		anim.flip_h = false

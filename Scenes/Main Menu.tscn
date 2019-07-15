@@ -53,11 +53,10 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 3 )
 
 [node name="PlayButton" type="Button" parent="workingtitle00000000/button0000"]
-visible = false
-margin_left = -138.636
-margin_top = -58.1818
-margin_right = 166.364
-margin_bottom = 75.8182
+margin_left = -153.637
+margin_top = -64.4323
+margin_right = 151.363
+margin_bottom = 69.5677
 icon = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="workingtitle00000000/button0000"]
@@ -74,11 +73,10 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="workingtitle00000000/button0001"]
-visible = false
-margin_left = -138.636
-margin_top = -58.1818
-margin_right = 166.364
-margin_bottom = 75.8182
+margin_left = -148.637
+margin_top = -64.4323
+margin_right = 156.363
+margin_bottom = 69.5677
 icon = ExtResource( 3 )
 
 [node name="Label2" type="Label" parent="workingtitle00000000/button0001"]

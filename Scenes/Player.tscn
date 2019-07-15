@@ -1,62 +1,69 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/bob0.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/bob_walk0.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/bob_walk2.png" type="Texture" id=4]
-[ext_resource path="res://Graphics/bob_walk3.png" type="Texture" id=5]
-[ext_resource path="res://Graphics/bob0011attack1.png" type="Texture" id=6]
-[ext_resource path="res://Graphics/bob0012attack2.png" type="Texture" id=7]
-[ext_resource path="res://Graphics/bob0013attack3.png" type="Texture" id=8]
-[ext_resource path="res://Graphics/bob0008jumpfalling.png" type="Texture" id=9]
-[ext_resource path="res://Graphics/bob0005fix1.png" type="Texture" id=10]
-[ext_resource path="res://Graphics/bob0006 (1)fix2.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/bobfix1.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/bobfix2.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/bob_walk2.png" type="Texture" id=6]
+[ext_resource path="res://Graphics/bob_walk3.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/bob0011attack1.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/bob0012attack2.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/bob0013attack3.png" type="Texture" id=10]
+[ext_resource path="res://Graphics/bob0008jumpfalling.png" type="Texture" id=11]
+[ext_resource path="res://Graphics/bob0005fix1.png" type="Texture" id=12]
+[ext_resource path="res://Graphics/bob0006 (1)fix2.png" type="Texture" id=13]
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/bob0007crouch.png-d5da80fb58934696ca5e72605502411e.stex"
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "walk",
-"speed": 6.0
-}, {
-"frames": [ SubResource( 4 ), ExtResource( 3 ) ],
+"frames": [ SubResource( 1 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "jump",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "fixing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "attack22",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": false,
 "name": "crouch",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12.1052, 19.3927 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 12.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -67,17 +74,17 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -8.09015, -8.35979 )
-frames = SubResource( 1 )
-animation = "crouch"
+frames = SubResource( 2 )
+animation = "fixing"
 playing = true
 
 [node name="hurtBox" type="CollisionShape2D" parent="."]
 position = Vector2( -7.48409, 5.30339 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="attackOrigin" type="Node2D" parent="hurtBox"]
 position = Vector2( 30, 0 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -7.73065, -24.5905 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )

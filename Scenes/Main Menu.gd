@@ -18,4 +18,5 @@ func _on_Button_pressed(): #quit
 
 
 func _on_PlayButton_pressed(): #play
-	get_tree().change_scene("")
+	Global.gui.visible = true
+	get_tree().change_scene("res://Level1.tscn")
