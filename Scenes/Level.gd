@@ -4,7 +4,7 @@ export var xPos = 0
 export var yPos = 0
 export var spawned = "res://Scenes/Slime.tscn"
 export var xDirec = 1.0
-var delay = 240
+export var delay = 240
 var counter = 0
 
 func _process(delta):
