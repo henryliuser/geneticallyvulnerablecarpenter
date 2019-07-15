@@ -43,6 +43,7 @@ func _process(delta):
 		if Input.is_action_pressed("ui_accept"):
 			dead = false
 			playerHP = 100
+			$CanvasLayer/death0000.visible = false
 			#nidhir do this please reset controls dlfhds[oufjao[fu]]
 			get_tree().change_scene("res://Scenes/Main Menu.tscn")
 	
@@ -57,7 +58,7 @@ func playerHurt(dmg):
 	playerHP -= dmg
 	if playerHP <= 0:
 		dead = true
-		$death0000.visible = true
+		$CanvasLayer/death0000.visible = true
 
 func scrambleControls():
 	for action in InputMap.get_actions():
